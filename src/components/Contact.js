@@ -1,19 +1,17 @@
 import React from "react";
 import "./Contact.css";
 
-const Contact = () => {
+const Contact = ({ avatar, name, isOnline }) => {
   return (
     <div className="Contact">
-      <img
-        src="https://randomuser.me/api/portraits/women/27.jpg"
-        alt="user"
-        className="avatar"
-      />
+      <img src={avatar} alt="avatar" className="avatar" />
       <div>
-        <p className="name">Constance Johnson</p>
+        <p className="name">{name}</p>
         <div className="status">
-          <a className="status-online"></a>
-          <p className="status-text"> online </p>
+          <span className={isOnline ? "status-online" : "status-offline"}>
+            {" "}
+          </span>
+          <p className="status-text">{isOnline ? "Online" : "Offline"} </p>
         </div>
       </div>
     </div>
